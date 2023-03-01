@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Social Chess</title>
+</head>
+{% extends 'base.html' %}
+<body>
+    {% block content %} 
+        <div id="greeting">
+            <h2>Hello, {{ username }}</h2>
+        </div>
+        <div id="news">
+            <h2>Chess News</h2>
+            <ul>
+                {% for item in news %}
+                <li>
+                    <a href="{{ item.link }}">{{ item.title }}</a>
+                    <p class="item-description">{{ item.description }}</p>
+                    <p class="item-date">{{ item.pubDate }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endblock %}
+</body>
+</html>

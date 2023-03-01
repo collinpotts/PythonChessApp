@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <title>{{ post.title }}</title>
+</head>
+
+{% extends 'base.html' %}
+
+<body>
+    {% block content %}
+    <div id="post">
+        <h2 id="post-title">{{ post.title }}</h2>
+        <div id="post-container">
+        <p id="post-meta">Posted by {{ post.user.username }} on {{ post.created_at }}</p>
+        <p id="post-body">{{ post.body }}</p>
+        <p>{{ post.votes|length }} votes</p>
+        </div>
+        <div id="vote-form">
+            <form action="/posts/{{ post_id }}/vote" method="POST">
+                <input type="hidden" name="user_id" value="{{ logged_in_user }}">
+                <button type="submit" name="vote" value="upvote">Upvote</button>
+                <input type="hidden" name="user_id" value="{{ logged_in_user }}">
+                <button type="submit" name="vote" value="downvote">Downvote</button>
+            </form>
+        </div>
+        <h2 id="replies-title">Replies:</h2>
+        {% for reply in post.replies %}
+        <div class="reply">
+            <p class="reply-meta">{{ reply.user.username }} commented on {{ reply.created_at }}:</p>
+            <p class="reply-body">{{ reply.body }}</p>
+        </div>
+        {% endfor %}
+        <div id="reply-form">
+            <form action="/posts/{{ post_id }}/reply" method="POST">
+                <textarea name="body"></textarea>
+                <button type="submit">Submit Reply</button>
+            </form>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html

@@ -1,0 +1,512 @@
+h1::before {
+	content: url(chessp/chess.png);
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+h1::after {
+	content: url(chessp/chess.png);
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 10px;
+}
+
+#myBoard {
+	display: inline-block;
+	align-items: center;
+	justify-content: center;
+	width: 700px;
+}
+.square {
+	width: 50px;
+	height: 50px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	font-weight: bold;
+	color: black;
+	background-color: white;
+	border: 2px solid black;
+}
+.square.black {
+	background-color: grey;
+}
+
+.pgn {
+	display: inline-block;
+	align-items: center;
+	justify-content: center;
+}
+
+.status {
+	display: inline-block;
+	align-items: center;
+	justify-content: center;
+}
+
+#playComputerBtn {
+	background-color: #404040;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#playLocalBtn {
+	background-color: #404040;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#watchComputerBtn {
+	background-color: #404040;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+body {
+	background-image: url(chessp/background.jpg);
+	color: #fff;
+	font-family: 'Brush Script MT', cursive, sans-serif;
+	align-items: center;
+	justify-content: center;
+}
+
+nav {
+	background-color: #0000005d;
+	color: #fff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	border-radius: 5px;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+nav li {
+	margin: 0 1rem;
+}
+
+nav a {
+	text-decoration: none;
+	color: #fff;
+}
+
+#content {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 2rem;
+}
+
+h1 {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+	align-items: center;
+}
+
+label {
+	font-size: 1.2rem;
+}
+
+input[type="text"],
+textarea {
+	background-color: #444;
+	border: none;
+	color: #fff;
+	padding: 0.5rem;
+	margin-bottom: 1rem;
+	width: 100%;
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+
+
+.post-list {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5em;
+}
+
+.post {
+	background-color: #0000005d;
+	border-radius: 5px;
+	padding: 1em;
+}
+
+.post:hover {
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.post-header h2 {
+	font-size: 1.2em;
+	margin: 0;
+}
+
+.post-author {
+	font-size: 0.9em;
+	text-align: center;
+}
+
+.post-date {
+	font-size: 0.9em;
+}
+
+.post-body {
+	text-align: center;
+}
+
+.post-link {
+	color: #dadbdb;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.post-link:hover {
+	color: #d2d3d4;
+}
+
+.post-link::before {
+	content: "#";
+}
+
+.post-link::after {
+	content: " ▶";
+}
+
+a {
+	color: #ebebeb;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+a:hover {
+	color: #000000;
+}
+
+.posts-container {
+	text-align: center;
+}
+
+#create-post {
+	text-align: center;
+	display: inline-block;
+	color: white;
+	border-radius: 3px;
+	text-decoration: none;
+	font-size: 1.5em;
+	padding: 1em;
+}
+
+#create-post:hover {
+	color: black;
+}
+
+.posts-header {
+	text-align: center;
+	margin-bottom: 2em;
+}
+
+.conversation {
+	padding: 10px;
+	border-bottom: 1px solid #404040;
+	cursor: pointer;
+}
+
+.conversation:hover {
+	background-color: #282828;
+}
+
+.conversation h2 {
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+
+#new-message {
+	background-color: #1e1e1e;
+	padding: 20px;
+	margin-top: 20px;
+}
+
+#new-message h2 {
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+select, textarea {
+	width: 100%;
+	padding: 10px;
+	background-color: #2b2b2b;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	margin-bottom: 10px;
+}
+
+input[type="submit"] {
+	background-color: #404040;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+	background-color: #606060;
+}
+
+.message {
+	display: block;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	background-color: #0000005d;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.904);
+}
+.message strong {
+	display: inline-block;
+	margin-right: 5px;
+	margin-left: 10px;
+	font-weight: bold;
+}
+
+.btn-primary {
+	background-color: #404040;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+#post-title {
+	font-size: 2.5rem;
+	margin-bottom: 0.5rem;
+}
+
+#post-meta {
+	background-color: #333;
+	font-size: 0.9rem;
+	color: #999;
+	margin-bottom: 1rem;
+}
+
+#post-body {
+	background-color: #333;
+	font-size: 1.2rem;
+	line-height: 1.8;
+	margin-bottom: 1.5rem;
+}
+
+#post-container {
+	background-color: #333;
+	padding: 10px 10px;
+	margin-bottom: 30px;
+	border-radius: 5px;
+}
+
+#vote-form button {
+	background-color: #333;
+	color: #fff;
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 4px;
+	margin-right: 0.5rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+#vote-form button:hover {
+	background-color: #000;
+}
+
+#replies-title {
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.reply {
+	background-color: #333;
+	padding: 1.5rem;
+	margin-bottom: 1.5rem;
+	border-radius: 5px;
+}
+
+.reply-meta {
+	background-color: #333;
+	font-size: 0.9rem;
+	color: #999;
+	margin-bottom: 0.5rem;
+}
+
+.reply-body {
+	background-color: #333;
+	font-size: 0.9rem;
+	line-height: 1.8;
+	margin-bottom: 1rem;
+}
+
+#reply-form textarea {
+	font-size: 0.9rem;
+	line-height: 1.8;
+	padding: 0.5rem;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	margin-bottom: 1.5rem;
+}
+
+#title {
+	background-color: #0a0a0a65;
+}
+
+#reply-form button {
+	background-color: #333;
+	color: #fff;
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+#reply-form button:hover {
+	background-color: #000;
+}
+
+.logins {
+	width: 400px;
+	margin: 100px auto;
+	padding: 20px;
+	background-color: #0c0c0c83;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.logins h2 {
+	margin-top: 0;
+	font-size: 24px;
+	text-align: center;
+	color: #ffffff;
+}
+
+.logins form {
+	display: flex;
+	flex-direction: column;
+}
+
+.logins form p {
+	margin: 10px 0;
+}
+
+.logins form input[type="text"],
+.logins form input[type="password"] {
+	padding: 10px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	background-color: #f4f4f4;
+	font-size: 16px;
+	color:rgb(0, 0, 0)
+}
+
+.logins form input[type="submit"] {
+	background-color: #0a0a0a65;
+	color: #fff;
+	border: none;
+	padding: 10px;
+	border-radius: 3px;
+	font-size: 18px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+
+.logins form input[type="submit"]:hover {
+	background-color: #0d0e0d63;
+}
+
+.logins form input[type="text"]:focus,
+.logins form input[type="password"]:focus {
+	outline: none;
+	border: 1px solid #0000008a;
+	box-shadow: 0 0 5px #02020275;
+}
+
+#news {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+#news h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#news ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#news li {
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 40px;
+}
+
+#news li:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+#news li a {
+    font-size: 24px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#news li a:hover {
+    text-decoration: underline;
+}
+
+.item-description {
+    font-size: 18px;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.item-date {
+    font-size: 16px;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+

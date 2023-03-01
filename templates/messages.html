@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <title>Inbox</title>
+</head>
+
+{% extends 'base.html' %}
+{% block content %}
+<body>
+  <h2>Inbox</h2>
+
+  <div id="messages">
+    {% for conversation in conversations %}
+      <div class="conversation" data-other-user-id="{{ conversation.other_user.user_id }}">
+        <h2>{{ conversation.other_user.username }}</h2>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div id="new-message">
+    <h2>New Message</h2>
+    <form action="/send_message" method="POST">
+      <label for="to-user">To:</label>
+      <select id="to-user" name="recipient_id">
+        {% for user in users %}
+          <option value="{{ user.user_id }}">{{ user.username }}</option>
+        {% endfor %}
+      </select>
+      <br>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="3"></textarea>
+      <br>
+      <input type="submit" value="Send">
+    </form>
+  </div>
+
+  <script>
+    var conversations = document.querySelectorAll(".conversation");
+    conversations.forEach(function(conversation) {
+      conversation.addEventListener("click", function() {
+        var otherUserId = conversation.dataset.otherUserId;
+        window.location.href = "/messages/" + otherUserId;
+      });
+    });
+  </script>
+  {% endblock %}
+</body>
+</html>

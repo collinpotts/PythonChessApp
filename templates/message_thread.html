@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      {% if user %}
+      <h2>Conversation with {{ user.username }}</h2>
+      <ul>
+        {% for message in sorted_messages %}
+          {% if message.sender_id == current_user_id or message.recipient_id == current_user_id %}
+            <li class="message">
+              {% if message.sender_id == current_user_id %}
+                <strong>You:</strong>
+              {% else %}
+                <strong>{{ message.sender.username }}:</strong>
+              {% endif %}
+              {{ message.message }}
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+  <form action="/send_message" method="POST">
+    <form action="/send_message" method="POST">
+      <input type="hidden" name="recipient_id" value="{{ user.user_id }}">
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea class="form-control" id="message" name="message" rows="5"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+    
+  </form>
+</div>
+{% endblock %}

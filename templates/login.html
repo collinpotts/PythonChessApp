@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/site.css"/>
+    <title>Document</title>
+</head>
+    {% block body %}
+    <div class="logins">
+    <h2>Create an Account</h2>
+        <form action="/users" method="POST">
+            <p>
+                Email <input type = "text" name="email">
+            </p>
+            <p>
+                Username <input type="text" name="username">
+            </p>
+            <p>
+                Password <input type="password" name="password">
+            </p>
+            <p>
+                <input type="submit">
+            </p>
+        </form>
+    <br>
+    <h2>Log In</h2>
+        <form action="/login" method="POST">
+            <p>
+                Username <input type="text" name="username">
+            </p>
+
+            <p>
+                Password <input type="password" name="password">
+            </p>
+
+            <p>
+                <input type="submit">
+            </p>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>
